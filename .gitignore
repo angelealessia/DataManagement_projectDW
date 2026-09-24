@@ -1,0 +1,9 @@
+# Dataset originali (troppo grandi o scaricabili da Kaggle)
+*.csv
+*.parquet
+=
+
+# Python
+__pycache__/
+*.pyc
+.env
