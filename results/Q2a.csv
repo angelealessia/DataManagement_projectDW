@@ -1,0 +1,11 @@
+pillar_name,cve_count,in_kev,exploitation_rate_pct,avg_epss
+Improper Control of a Resource Through its Lifetime,62980,442,0.702,0.0219
+Improper Neutralization,56581,205,0.362,0.0247
+Improper Access Control,25918,134,0.517,0.0176
+Protection Mechanism Failure,10872,18,0.166,0.0054
+Incorrect Calculation,2209,14,0.634,0.0119
+Improper Check or Handling of Exceptional Conditions,1121,8,0.714,0.0091
+Improper Adherence to Coding Standards,4111,5,0.122,0.0038
+Improper Interaction Between Multiple Correctly-Behaving Entities,351,4,1.14,0.0324
+Incorrect Comparison,178,2,1.124,0.0235
+Insufficient Control Flow Management,1645,2,0.122,0.0086

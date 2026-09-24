@@ -1,0 +1,6 @@
+exploit_class,cve_count,critical_or_high,avg_cvss,avg_epss,in_kev
+RCE,4433,3491,7.98,0.0334,67
+None,31142,11576,6.5,0.0061,120
+Buffer Overflow,1584,1133,7.35,0.0048,1
+SQL Injection,3865,1191,6.97,0.0044,2
+XSS,8525,1948,6.06,0.0021,3

@@ -1,0 +1,16 @@
+cwe_id,cwe_name,cve_count,in_kev,avg_epss,rank_by_frequency,rank_by_exploitation
+CWE-787,Out-of-bounds Write,9754,98,0.0158,1,1
+CWE-416,Use After Free,4511,65,0.0125,4,2
+CWE-22,Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal'),5131,57,0.0619,3,3
+CWE-502,Deserialization of Untrusted Data,2013,46,0.0772,8,4
+CWE-843,Access of Resource Using Incompatible Type ('Type Confusion'),469,27,0.0255,29,5
+CWE-918,Server-Side Request Forgery (SSRF),2049,16,0.0431,7,6
+CWE-119,Improper Restriction of Operations within the Bounds of a Memory Buffer,1968,15,0.0089,9,7
+CWE-434,Unrestricted Upload of File with Dangerous Type,3074,14,0.0595,5,8
+CWE-125,Out-of-bounds Read,5372,12,0.0066,2,9
+CWE-120,Buffer Copy without Checking Size of Input ('Classic Buffer Overflow'),2822,9,0.0142,6,10
+CWE-362,Concurrent Execution using Shared Resource with Improper Synchronization ('Race Condition'),1414,9,0.0062,12,10
+CWE-611,Improper Restriction of XML External Entity Reference,697,5,0.0325,21,12
+CWE-59,Improper Link Resolution Before File Access ('Link Following'),624,5,0.0128,22,12
+CWE-367,Time-of-check Time-of-use (TOCTOU) Race Condition,472,5,0.0106,28,12
+CWE-1188,Initialization of a Resource with an Insecure Default,171,4,0.047,46,15

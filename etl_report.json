@@ -1,0 +1,129 @@
+{
+  "rows_read": {
+    "NVD records": 201542,
+    "NVD weaknesses": 260862,
+    "NVD CPE matches": 1550739,
+    "FIRST EPSS": 329934,
+    "CISA KEV": 1585,
+    "MITRE CWE": 944
+  },
+  "cleaning": {
+    "NVD records: malformed cve_id dropped": 0,
+    "NVD records: duplicate cve_id dropped": 0,
+    "NVD records: unparseable published date": 0,
+    "cvss_score": {
+      "empty_or_NaN": 8974,
+      "non_numeric_text": 0,
+      "infinite": 0,
+      "out_of_range": 0,
+      "valid": 192568
+    },
+    "CVEs without description": 0,
+    "EPSS: malformed cve_id dropped": 0,
+    "EPSS: duplicate cve_id dropped": 0,
+    "epss_score": {
+      "empty_or_NaN": 0,
+      "non_numeric_text": 0,
+      "infinite": 0,
+      "out_of_range": 0,
+      "valid": 329934
+    },
+    "epss_percentile": {
+      "empty_or_NaN": 0,
+      "non_numeric_text": 0,
+      "infinite": 0,
+      "out_of_range": 0,
+      "valid": 329934
+    },
+    "CPE: non-vulnerable platform rows dropped": 445848,
+    "CPE: rows with wildcard/empty vendor or product dropped": 16,
+    "KEV: malformed cve_id dropped": 0,
+    "KEV: duplicate cve_id dropped": 0
+  },
+  "integration": {
+    "attack-class flags from NVD description": {
+      "f_rce": {
+        "ours": 23808,
+        "kaggle": 38304
+      },
+      "f_xss": {
+        "ours": 30370,
+        "kaggle": 27664
+      },
+      "f_sqli": {
+        "ours": 12225,
+        "kaggle": 12195
+      },
+      "f_bof": {
+        "ours": 8127,
+        "kaggle": 8001
+      }
+    },
+    "CVEs with more than one CWE (primary chosen)": 62418,
+    "KEV vendor names": {
+      "distinct": 258,
+      "identical to NVD CPE name": 149,
+      "remapped to NVD CPE name": 62,
+      "kept as in CISA (no NVD evidence)": 47,
+      "examples": {
+        "acclaim_systems": "acclaimsystems",
+        "android": "google",
+        "aquasecurity": "aquasec",
+        "arcadyan": "buffalo",
+        "array_networks": "arraynetworks",
+        "barracuda_networks": "barracuda",
+        "check_point": "checkpoint",
+        "craft_cms": "craftcms",
+        "cwp": "control_webpanel",
+        "cyberpersons": "cyberpanel",
+        "d_link": "dlink",
+        "dahua": "dahuasecurity",
+        "dassault_syst_mes": "3ds",
+        "delta_electronics": "deltaww",
+        "fatpipe": "fatpipeinc"
+      }
+    },
+    "CWE ids enriched from MITRE catalog": "622/644",
+    "KEV CVEs whose product was set from CISA (differs from CPE primary)": 100
+  },
+  "validation": {
+    "severity label != CVSS v3 band (expected for CVSS v2-only CVEs)": 0,
+    "KEV CVEs per attack flag (ours)": {
+      "f_rce": 362,
+      "f_xss": 20,
+      "f_sqli": 18,
+      "f_bof": 34
+    },
+    "EPSS matched by our join": 194478,
+    "EPSS in pre-joined column (reference)": 194478,
+    "KEV matched by our join": 1039,
+    "KEV flag disagreements with pre-joined column": 0,
+    "KEV entries added before NVD publication (days_to_kev < 0)": 61,
+    "KEV entries outside the NVD 2020-2026 snapshot": 546
+  },
+  "dimensions": {
+    "dim_date": 2324,
+    "dim_product": 31987,
+    "dim_cwe": 645,
+    "dim_severity": 40,
+    "dim_exploit_type": 12
+  },
+  "facts": {
+    "fact_vulnerability": {
+      "rows": 201542,
+      "rows pointing to Unknown member": {
+        "published_date_key": 0,
+        "product_key": 40398,
+        "cwe_key": 10069
+      }
+    },
+    "fact_kev_addition": {
+      "rows": 1585,
+      "rows pointing to Unknown member": {
+        "date_added_key": 0,
+        "product_key": 0,
+        "cwe_key": 546
+      }
+    }
+  }
+}
