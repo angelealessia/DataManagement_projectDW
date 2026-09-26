@@ -1,7 +1,4 @@
 -- =============================================================================
--- CVE Data Warehouse - OLAP queries
--- Data Management 2025/2026 - Alessia Angele (2003000)
---
 -- Cubes
 --   C1 fact_vulnerability  (published_date, product, cwe, severity, exploit_type)
 --      measures: count, cvss_score, epss_score, epss_percentile, affected_products, is_in_kev

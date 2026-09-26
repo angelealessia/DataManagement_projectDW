@@ -1,9 +1,6 @@
 #!/usr/bin/env python3
 """
-ETL - CVE Data Warehouse
-Data Management 2025/2026 - Alessia Angele (2003000)
-
-The sources are integrated HERE, starting from the separate files of each
+The sources are integrated here, starting from the separate files of each
 provider (the pre-joined columns of nvd_cve_records.csv are used only as a
 cross-check, never as input):
 
@@ -22,10 +19,6 @@ dim_date, dim_product, dim_cwe.
   fact_vulnerability   grain: one CVE published in NVD
   fact_kev_addition    grain: one CVE added to the CISA KEV catalog
 
-Usage:
-  python etl.py                 # full run, (re)creates and loads the DW
-  python etl.py --dry-run       # transformations + report only, no database
-  python etl.py --data-dir data # CSV files in another folder
 """
 import argparse
 import json
@@ -115,7 +108,7 @@ def clean_float(s, lo, hi, name):
     reaches PostgreSQL (a float NaN there breaks AVG/ORDER BY)."""
     raw = pd.to_numeric(s, errors="coerce")
     n_empty = int(s.isna().sum())
-    n_text = int((s.notna() & raw.isna()).sum())        # 'NaN', garbage
+    n_text = int((s.notna() & raw.isna()).sum())        # 'NaN'
     n_inf = int(np.isinf(raw).sum())
     x = raw.replace([np.inf, -np.inf], np.nan)
     bad = x.notna() & ((x < lo) | (x > hi))
@@ -176,14 +169,14 @@ def extract(data_dir):
         "attack_complexity": (["cvssv31attackcomplexity"], False),
         # English description: the attack-class flags are computed from it here.
         # (The Kaggle mentions_* flags leak the KEV label - 1,036/1,039 KEV CVEs
-        #  flagged RCE, 0 SQLi/XSS - so they are only compared, never used.)
+        #  flagged RCE, 0 SQLi/XSS)
         "description": (["description", "descriptionen", "englishdescription",
                          "cvedescription", "summary"], True),
         "kg_rce": (["mentionsrce"], False),
         "kg_xss": (["mentionsxss"], False),
         "kg_sqli": (["mentionssqlinjection"], False),
         "kg_bof": (["mentionsbufferoverflow"], False),
-        # pre-joined by the Kaggle author: used ONLY to cross-check our joins
+        # pre-joined by the Kaggle author: used to cross-check joins
         "chk_kev": (["kevisknownexploited"], False),
         "chk_epss": (["epssscore"], False),
     }, "NVD records")

@@ -99,7 +99,10 @@
     "KEV matched by our join": 1039,
     "KEV flag disagreements with pre-joined column": 0,
     "KEV entries added before NVD publication (days_to_kev < 0)": 61,
-    "KEV entries outside the NVD 2020-2026 snapshot": 546
+    "KEV entries outside the NVD 2020-2026 snapshot": 546,
+    "[DB] dim_date rows = distinct dates + Unknown": "OK",
+    "[DB] fact_vulnerability.is_in_kev = KEV rows in snapshot": "OK",
+    "[DB] no NaN in numeric measures": "OK"
   },
   "dimensions": {
     "dim_date": 2324,

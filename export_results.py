@@ -13,10 +13,10 @@ import pandas as pd
 import psycopg2
 
 DB_PARAMS = {"dbname": "vulnerabilities_dw", "user": "alessiaangele"}
-warnings.filterwarnings("ignore", message=".*SQLAlchemy.*")  # psycopg2 works fine here
+warnings.filterwarnings("ignore", message=".*SQLAlchemy.*")  
 
 sql = Path("queries.sql").read_text()
-# every query starts with a header line like "-- Q2a [DRILL-DOWN] ..."
+
 blocks = re.split(r"(?m)^-- =+\n(?=-- Q)", sql)[1:]
 
 out = Path("results")
