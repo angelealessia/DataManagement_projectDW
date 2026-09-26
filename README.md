@@ -37,7 +37,7 @@ NULL foreign keys.
 | `export_results.py` | runs every query in `queries.sql` and saves the results to `results/` |
 | `etl_report.json` | counts of everything the ETL cleaned, dropped, reconciled and validated |
 | `results/` | query results as CSV (used for the charts in the presentation) |
-| `docs/` | presentation |
+| `docs/` | presentation (`project_presentation.pdf`) |
 
 ## How to run
 
@@ -86,7 +86,7 @@ are used only to check the result.
 |---|---|
 | Extract | reads only the needed columns; stops with a clear message if a column is missing |
 | Clean | validates CVE ids and removes duplicates; truncates timestamps to the day; turns empty, `NaN` and ±Infinity values into NULL, with range checks (CVSS 0–10, EPSS 0–1) |
-| Integrate | joins the sources on the CVE id; keeps the NVD *Primary* CWE; parses CPE 2.3 strings to get vendor and product, keeping only vulnerable matches; reconciles CISA vendor names with NVD names (e.g. `d_link → dlink`, `android → google`) by majority vote over shared CVEs; takes CWE names and the cwe → pillar hierarchy from MITRE |
+| Integrate | joins the sources on the CVE id; keeps the NVD *Primary* CWE; parses CPE 2.3 strings to get vendor and product, keeping only vulnerable matches; reconciles CISA vendor names with NVD names (e.g. `d_link → dlink`, `android → google`) by majority vote over shared CVEs; takes CWE names and the cwe → pillar hierarchy from MITRE; computes the attack-class flags (RCE, XSS, SQL injection, buffer overflow) by keyword matching on the NVD description |
 | Build | assigns surrogate keys and adds the `Unknown` member to each dimension; `dim_date` is a full calendar with key `YYYYMMDD` |
 | Load & check | adds primary keys, foreign keys, unique constraints and indexes, then runs checks in SQL (dimension grain, KEV consistency between the two facts, no NaN) |
 
@@ -118,6 +118,12 @@ score and 1,039 CVEs in KEV. Both numbers match the reference exactly, with
 | Q5 | Pivot (CVSS × EPSS) | does CVSS severity agree with predicted exploitation? |
 | Q6 | Drill-Across (both facts) | CVEs published vs added to KEV, per vendor and year |
 | Q7 | Roll-Up on the KEV cube (product → vendor) | how fast vulnerabilities are exploited |
+
+## Main findings
+
+- **Severity is not risk:** 68% of CVSS-critical CVEs have EPSS below 1%, while 337 "medium" CVEs have EPSS of 50% or more (Q5).
+- **Frequency does not predict exploitation:** type confusion (CWE-843) is only 29th by volume but 5th by exploitation (Q2b).
+- **Vendors differ in kind:** since 2023 Microsoft has about 30 KEV entries per 1,000 published CVEs, Ivanti over 60 (Q6); Fortinet flaws reach KEV in a median of 1 day (Q7).
 
 ## Limitations
 
